@@ -684,6 +684,35 @@ void test_linked_list_bubble_sort() {
     printf("[SUCCESS] test_linked_list_bubble_sort\n");
 }
 
+void test_linked_list_insert_sorted() {
+    LinkedList expectedList = NULL;
+    linked_list_add(&expectedList, 2);
+    linked_list_add(&expectedList, 5);
+    linked_list_add(&expectedList, 10);
+    linked_list_add(&expectedList, 50);
+    linked_list_add(&expectedList, 52);
+    linked_list_add(&expectedList, 100);
+
+    LinkedList list = NULL;
+    linked_list_insert_sorted(&list, 5); // test empty [5]
+    linked_list_insert_sorted(&list, 50); // test end [5, 50]
+    linked_list_insert_sorted(&list, 2); // test begin [2, 5, 50]
+    linked_list_insert_sorted(&list, 100); // test end [2, 5, 50, 100]
+    linked_list_insert_sorted(&list, 10); // test between [2, 5, 10, 50, 100]
+    linked_list_insert_sorted(&list, 52); // test one before end [2, 5, 10, 50, 52, 100]
+
+    if(!linked_list_equals(expectedList, list)) {
+        printf("[FAIL-1] test_linked_list_insert_sorted\n");
+        printf("expected: ");
+        linked_list_print(expectedList);
+
+        printf("received: ");
+        linked_list_print(list);
+        exit(TEST_ERROR);
+    }
+
+    printf("[SUCCESS] test_linked_list_insert_sorted\n");
+}
 
 void run_tests() {
     test_linked_list_equals();
@@ -701,6 +730,7 @@ void run_tests() {
     test_linked_list_squared();
     test_linked_list_prime_amount();
     test_linked_list_bubble_sort();
+    test_linked_list_insert_sorted();
     
     exit(0);
 }
