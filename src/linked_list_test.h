@@ -3,6 +3,6 @@
 
 #define TEST_ERROR -42
 
-void run_tests();
+void run_linked_list_test();
 
 #endif

@@ -45,14 +45,14 @@ int linked_list_equals(LinkedList l1, LinkedList l2) {
     return 1;
 }
 
-void linked_list_show(LinkedList list) {
-    if(list == NULL) {
+void linked_list_show(LinkedList *list) {
+    if(*list == NULL) {
         printf("\n");
         return;
     }
 
-    printf("[%d]", list->value);
-    linked_list_show(list->next);
+    printf("[%d]", (*list)->value);
+    linked_list_show(&(*list)->next);
 }
 
 void linked_list_add_at_begin(LinkedList *list, int value) {
@@ -79,7 +79,7 @@ void linked_list_add(LinkedList *list, int value) {
     last_record->next = new;
 }
 
-int linked_list_add_at(LinkedList *list, int value, unsigned int index) {
+int linked_list_add_at(LinkedList *list, int value, int index) {
     if (index < 0) {
         return 0;
     }
@@ -114,16 +114,16 @@ int linked_list_add_at(LinkedList *list, int value, unsigned int index) {
     return 0;
 }
 
-void internal_show_reverse(LinkedList list) {
-    if (list == NULL) {
+void internal_show_reverse(LinkedList *list) {
+    if (*list == NULL) {
         return;
     }
 
-    internal_show_reverse(list->next);
-    printf("[%d]", list->value);
+    internal_show_reverse(&(*list)->next);
+    printf("[%d]", (*list)->value);
 }
 
-void linked_list_show_reverse(LinkedList list) {
+void linked_list_show_reverse(LinkedList *list) {
     internal_show_reverse(list);
     printf("\n");
 }
@@ -172,7 +172,7 @@ int internal_remove_from_list(LinkedList *before_record) {
     return 1;
 }
 
-int linked_list_remove_at(LinkedList *list, unsigned int index) {
+int linked_list_remove_at(LinkedList *list, int index) {
     if (index < 0) {
         return 0;
     }

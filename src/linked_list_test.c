@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "test.h"
 #include "linked_list.h"
+#include "linked_list_test.h"
 
 void test_linked_list_equals() {
     { // com duas iguais nulas
@@ -192,7 +192,7 @@ void test_linked_list_show_reverse() {
     linked_list_add(&result, 20);
     linked_list_add(&result, 30);
 
-    linked_list_show_reverse(result);
+    linked_list_show_reverse(&result);
     printf("[SUCCESS] test_linked_list_show_reverse\n");
 }
 
@@ -714,7 +714,8 @@ void test_linked_list_insert_sorted() {
     printf("[SUCCESS] test_linked_list_insert_sorted\n");
 }
 
-void run_tests() {
+void run_linked_list_test() {
+    printf("RUNNING LINKED LIST TESTS\n");
     test_linked_list_equals();
     test_linked_list_add_at_begin();
     test_linked_list_add();
@@ -731,6 +732,6 @@ void run_tests() {
     test_linked_list_prime_amount();
     test_linked_list_bubble_sort();
     test_linked_list_insert_sorted();
-    
+    printf("LINKED LIST TEST END\n"); 
     exit(0);
 }

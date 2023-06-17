@@ -297,10 +297,10 @@ typedef struct Option
 
 typedef Option Options[];
 
-void choice_option(Options options, List *list) {
+void choice_option(Options *options, List *list) {
     printf("AÇÕES\n");
     for (int i = 0; i < QTD_OPTIONS; i++) {
-        printf("%s\n", options[i].description);
+        printf("%s\n", (*options)[i].description);
     }
 
     int choice;
@@ -308,13 +308,15 @@ void choice_option(Options options, List *list) {
     while (!was_found) {
         choice = get_integer_from_keyboard("\nEscolha a ação a ser realizada: \n");
         for (int i = 0; i < QTD_OPTIONS; i++) {
-            if (options[i].code == choice) {
+            if ((*options)[i].code == choice) {
                 system("clear");
                 was_found = 1;
-                (*options[i].action)(list);
+                ((*options)[i].action)(list);
             }
         }
     }
+
+    choice_option(options, list);
 }
 
 void view_insert_first(List *list) {
@@ -433,5 +435,5 @@ void main() {
     };
 
     header(&main_list, TEXT_LS);
-    while (1) { choice_option(options, &main_list); }
+    choice_option(&options, &main_list);
 }

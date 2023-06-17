@@ -13,7 +13,7 @@ void linked_list_print(LinkedList list);
 int linked_list_equals(LinkedList l1, LinkedList l2);
 
 // OP 5
-void linked_list_show(LinkedList list);
+void linked_list_show(LinkedList *list);
 
 // OP 1
 void linked_list_add_at_begin(LinkedList *list, int value);
@@ -22,10 +22,10 @@ void linked_list_add_at_begin(LinkedList *list, int value);
 void linked_list_add(LinkedList *list, int value);
 
 // OP 3
-int linked_list_add_at(LinkedList *list, int value, unsigned int index);
+int linked_list_add_at(LinkedList *list, int value, int index);
 
 // OP 6
-void linked_list_show_reverse(LinkedList list);
+void linked_list_show_reverse(LinkedList *list);
 
 // OP 7
 int linked_list_remove_first_one(LinkedList *list);
@@ -34,7 +34,7 @@ int linked_list_remove_first_one(LinkedList *list);
 int linked_list_remove_last_one(LinkedList *list);
 
 // OP 9
-int linked_list_remove_at(LinkedList *list, unsigned int index);
+int linked_list_remove_at(LinkedList *list, int index);
 
 // OP 10
 int linked_list_remove(LinkedList *list, int value);
