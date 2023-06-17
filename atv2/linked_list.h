@@ -56,4 +56,7 @@ int linked_list_prime_amount(LinkedList *list);
 
 void linked_list_bubble_sort(LinkedList *list);
 
+// OP 4
+void linked_list_insert_sorted(LinkedList *list, int value);
+
 #endif

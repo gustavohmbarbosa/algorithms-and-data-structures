@@ -308,3 +308,25 @@ void linked_list_bubble_sort(LinkedList *list) {
         }
     } while (swapped);
 }
+
+void linked_list_insert_sorted(LinkedList *list, int value) {
+    if (*list == NULL || (*list)->value > value) {
+        return linked_list_add_at_begin(list, value);
+    }
+
+    LinkedList temp = *list; 
+    while (temp->next != NULL) {
+        if (temp->next->value < value) {
+            temp = temp->next;
+            continue;
+        }
+
+        LinkedList new = (LinkedList) malloc(sizeof(Record));
+        new->value = value;
+        new->next = temp->next;
+        temp->next = new;
+        return;
+    }
+    
+    return linked_list_add(list, value);
+}
