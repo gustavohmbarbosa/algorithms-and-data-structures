@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "utils.h"
 #include "linked_list.h"
 #include "linked_list_test.h"
 
 #define QTD_OPTIONS 17
 #define TEXT_DN "Digite o valor: \n"
 #define TEXT_DP "Digite a posição: \n"
-#define TEXT_LS "LISTA SEQUENCIAL"
+#define TEXT_LS "LISTA ENCADEADA"
 
 typedef void Action(LinkedList *list);
 
@@ -23,18 +24,6 @@ void header_plus(LinkedList *list, char title[], int clear) {
 
 void header(LinkedList *list, char text[]) {
     header_plus(list, text, 1);
-}
-
-int get_integer_from_keyboard(char message[]) {
-    int result;
-    int is_invalid;
-    do {
-        printf("%s", message);
-        is_invalid = scanf("%d", &result) != 1;
-        while(is_invalid && getchar() != EOF && getchar() != '\n');
-    } while (is_invalid);
-
-    return result;
 }
 
 void handle_view(int code, LinkedList *list) {

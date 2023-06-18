@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "utils.h"
 #include "linked_list.h"
 
 void linked_list_print(LinkedList list) {
@@ -268,26 +269,12 @@ void linked_list_squared(LinkedList *list) {
     return linked_list_squared(&(*list)->next);
 }
 
-int internal_is_prime(int n) {
-    if (n <= 1) {
-        return 0;
-    }
-
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return 0;
-        }
-    }
-
-    return 1;
-}
-
 int linked_list_prime_amount(LinkedList *list) {
     if (*list == NULL) {
         return 0;
     }
     
-    return internal_is_prime((*list)->value) + linked_list_prime_amount(&(*list)->next);
+    return is_prime((*list)->value) + linked_list_prime_amount(&(*list)->next);
 }
 
 void linked_list_bubble_sort(LinkedList *list) {

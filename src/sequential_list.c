@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "utils.h"
 #include "sequential_list.h"
 
 List list() {
@@ -151,25 +152,11 @@ void list_squared(List *list) {
     }
 }
 
-int isPrime(int n) {
-    if (n <= 1) {
-        return 0;
-    }
-
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            return 0;
-        }
-    }
-
-    return 1;
-}
-
 int list_prime_amount(List *list) {
     int result = 0;
 
     for (int i = 0; i < list->length; i++) {
-        if (isPrime(list->items[i])) {
+        if (is_prime(list->items[i])) {
             result++;
         }
     }

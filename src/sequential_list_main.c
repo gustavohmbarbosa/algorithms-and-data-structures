@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "utils.h"
 #include "sequential_list.h"
 
 #define DEBUG_MODE 1
@@ -263,18 +264,6 @@ void header_plus(List *list, char title[], int clear) {
 
 void header(List *list, char text[]) {
     header_plus(list, text, 1);
-}
-
-int get_integer_from_keyboard(char message[]) {
-    int result;
-    int is_invalid;
-    do {
-        printf("%s", message);
-        is_invalid = scanf("%d", &result) != 1;
-        while(is_invalid && getchar() != EOF && getchar() != '\n');
-    } while (is_invalid);
-
-    return result;
 }
 
 void handle_view(int code, List *list) {
