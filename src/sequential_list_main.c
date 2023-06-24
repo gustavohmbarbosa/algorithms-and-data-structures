@@ -84,41 +84,63 @@ void test_5_and_6() {
 }
 
 void test_from_7_to_10() {
-    List l1 = {
-        items: { 12, 56, 5, 10, 50, 100, 500, 600 },
-        length: 8
-    };
-    List l2 = list();
-    List expectedList = {
-        items: { 5, 10 },
-        length: 2
-    };
+    {
+        List l1 = {
+            items: { 12, 56, 5, 10, 50, 100, 500, 600 },
+            length: 8
+        };
+        List l2 = list();
+        List expectedList = {
+            items: { 5, 10 },
+            length: 2
+        };
 
-    // do nothing
-    list_remove_at(&l2, 7);
-    list_remove_at(&l2, 0);
-    list_remove_at(&l1, 999);
-    list_remove_at(&l1, -1);
-    list_remove(&l1, 27);
+        // do nothing
+        list_remove_at(&l2, 7);
+        list_remove_at(&l2, 0);
+        list_remove_at(&l1, 999);
+        list_remove_at(&l1, -1);
+        list_remove(&l1, 27);
 
-    // it removes
-    list_remove_at(&l1, 4);
-    list_remove(&l1, 12);
-    list_remove_first(&l1);
-    list_remove(&l1, 100);
-    list_remove_last(&l1);
-    list_remove(&l1, 500); 
+        // it removes
+        list_remove_at(&l1, 4);
+        list_remove(&l1, 12);
+        list_remove_first(&l1);
+        list_remove(&l1, 100);
+        list_remove_last(&l1);
+        list_remove(&l1, 500); 
 
-    if(!list_equals(&l1, &expectedList)) {
-        printf("[FAIL] test_from_7_to_10\n");
-        printf("expected: ");
-        list_print(&expectedList);
+        if(!list_equals(&l1, &expectedList)) {
+            printf("[FAIL] test_from_7_to_10\n");
+            printf("expected: ");
+            list_print(&expectedList);
 
-        printf("received: ");
-        list_print(&l1);
-        exit(TEST_ERROR);
+            printf("received: ");
+            list_print(&l1);
+            exit(TEST_ERROR);
+        }
     }
 
+    {
+        List l1 = {
+            items: { 500, 600 },
+            length: 2
+        };
+        List expectedList = list();
+
+        list_remove_last(&l1);
+        list_remove_last(&l1);
+
+        if(!list_equals(&l1, &expectedList)) {
+            printf("[FAIL] test_from_7_to_10\n");
+            printf("expected: ");
+            list_print(&expectedList);
+
+            printf("received: ");
+            list_print(&l1);
+            exit(TEST_ERROR);
+        }
+    }
     printf("[SUCCESS] test_from_7_to_10\n");
 }
 
