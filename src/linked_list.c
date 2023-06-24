@@ -56,14 +56,16 @@ void linked_list_show(LinkedList *list) {
     linked_list_show(&(*list)->next);
 }
 
-void linked_list_add_at_begin(LinkedList *list, int value) {
+Record *linked_list_add_at_begin(LinkedList *list, int value) {
     LinkedList new = (LinkedList) malloc(sizeof(Record));
     new->value = value;
     new->next = *list;
     *list = new;
+
+    return new;
 }
 
-void linked_list_add(LinkedList *list, int value) {
+Record *linked_list_add(LinkedList *list, int value) {
     if (*list == NULL) {
         return linked_list_add_at_begin(list, value);
     }
@@ -78,20 +80,21 @@ void linked_list_add(LinkedList *list, int value) {
     }
 
     last_record->next = new;
+
+    return new;
 }
 
-int linked_list_add_at(LinkedList *list, int value, int index) {
+Record *linked_list_add_at(LinkedList *list, int value, int index) {
     if (index < 0) {
-        return 0;
+        return NULL;
     }
 
     if (index == 0) {
-        linked_list_add_at_begin(list, value);
-        return 1;
+        return linked_list_add_at_begin(list, value);
     }
 
     if (*list == NULL) {
-        return 0;
+        return NULL;
     }
     
     int i = 0;
@@ -109,10 +112,10 @@ int linked_list_add_at(LinkedList *list, int value, int index) {
 
         temp->next = new;
 
-        return 1;
+        return new;
     }
 
-    return 0;
+    return NULL;
 }
 
 void internal_show_reverse(LinkedList *list) {
@@ -296,7 +299,7 @@ void linked_list_bubble_sort(LinkedList *list) {
     } while (swapped);
 }
 
-void linked_list_insert_sorted(LinkedList *list, int value) {
+Record *linked_list_insert_sorted(LinkedList *list, int value) {
     if (*list == NULL || (*list)->value > value) {
         return linked_list_add_at_begin(list, value);
     }
@@ -312,7 +315,8 @@ void linked_list_insert_sorted(LinkedList *list, int value) {
         new->value = value;
         new->next = temp->next;
         temp->next = new;
-        return;
+
+        return new;
     }
     
     return linked_list_add(list, value);

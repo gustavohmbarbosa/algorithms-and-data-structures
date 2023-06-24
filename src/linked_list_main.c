@@ -84,7 +84,8 @@ void view_linked_list_add_at(LinkedList *list) {
     header(list, "INSERIR NUMA POSIÇÃO ESPECÍFICA");
     int value = get_integer_from_keyboard(TEXT_DN);
     int index = get_integer_from_keyboard(TEXT_DP);
-    handle_view(linked_list_add_at(list, value, index), list);
+    Record *resp = linked_list_add_at(list, value, index);
+    handle_view(resp == NULL ? 0 : 1, list);
 }
 
 void view_linked_list_insert_sorted(LinkedList *list) {
