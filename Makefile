@@ -24,6 +24,17 @@ sequential_list.o: ./src/sequential_list.c
 	gcc -c ./src/sequential_list.c
 # sequential_list end
 
+# sequential_list start - para testes, remove comentário do main.
+sequential_stack_app: sequential_stack.o sequential_list.o utils.o
+	gcc -o sequential_stack_app.out sequential_stack.o sequential_list.o utils.o
+
+sequential_stack.o: ./src/sequential_stack.c
+	gcc -c ./src/sequential_stack.c
+	
+sequential_list.o: ./src/sequential_list.c
+	gcc -c ./src/sequential_list.c
+# sequential_list end
+
 # others start
 utils.o: ./src/utils.c
 	gcc -c ./src/utils.c
