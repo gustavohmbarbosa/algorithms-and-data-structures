@@ -10,7 +10,8 @@ List list() {
 
 void list_print(List *list) {
     printf("[\n");
-    for (int i = 0; i < list->length; i++) {
+    int limit = list->length;
+    for (int i = 0; i < limit; i++) {
         printf("   %d: %d\n", i, list->items[i]);
     }
     printf("]\n");
@@ -95,7 +96,7 @@ void list_show_reverse(List *list) {
 }
 
 int can_remove(List *list, unsigned int index) {
-    return list->length > 1 && list->length > index && index >= 0;
+    return list->length > 0 && list->length >= index && index >= 0;
 }
 
 int list_remove_at(List *list, unsigned int index) {
@@ -104,7 +105,8 @@ int list_remove_at(List *list, unsigned int index) {
     }
 
     list->length--;
-    for (int i = index; i < list->length; i++) {
+    int limit = list->length;
+    for (int i = index; i < limit; i++) {
         list->items[i] = list->items[i + 1]; 
     }
     
