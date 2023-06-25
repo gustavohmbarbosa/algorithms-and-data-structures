@@ -9,17 +9,14 @@
 Escreva um programa que recebe um string do teclado e determina se os parênteses, 
 colchetes e chaves estão bem balanceados. 
 Ex: 9 * { 10 + [2 / 3] + [ (-2) + (6 * 9 )] } / {-11}
-
-FIXME: tratar melhor os caracteres lidos, pois casos como este: "/ {}}" tem uma falha lógica,
-pois acaba chegando no "/0" antes mesmo de finalizar toda a leitura.
 */
 void main() {
     char str[STR_MAX];
-    scanf("%s", str);
+    fgets(str, STR_MAX, stdin);
 
     Stack stack = create_stack();
     int i = 0;
-    while (str[i] != 0) {
+    while (str[i] != '\n') {
         switch (str[i]) {
             case '{':
                 push(&stack, (int) '{');
