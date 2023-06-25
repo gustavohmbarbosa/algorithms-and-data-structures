@@ -49,6 +49,9 @@ stack_q3: linked_list_stack.o linked_list.o utils.o
 
 stack_q4: linked_list_stack.o linked_list.o utils.o
 	gcc -c ./src/stack_q4.c && gcc -o stack_q4.out stack_q4.o linked_list_stack.o linked_list.o utils.o
+
+stack_q5: linked_list_stack.o linked_list.o utils.o
+	gcc -c ./src/stack_q5.c && gcc -o stack_q5.out stack_q5.o linked_list_stack.o linked_list.o utils.o
 # others end
 
 clean:
