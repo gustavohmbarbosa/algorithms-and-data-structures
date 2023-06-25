@@ -43,6 +43,9 @@ linked_list_stack.o: ./src/linked_list_stack.c
 # others start
 utils.o: ./src/utils.c
 	gcc -c ./src/utils.c
+
+stack_q3: linked_list_stack.o linked_list.o utils.o
+	gcc -c ./src/stack_q3.c && gcc -o stack_q3.out stack_q3.o linked_list_stack.o linked_list.o utils.o
 # others end
 
 clean:
