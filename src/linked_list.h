@@ -16,13 +16,13 @@ int linked_list_equals(LinkedList l1, LinkedList l2);
 void linked_list_show(LinkedList *list);
 
 // OP 1
-void linked_list_add_at_begin(LinkedList *list, int value);
+Record *linked_list_add_at_begin(LinkedList *list, int value);
 
 // OP 2
-void linked_list_add(LinkedList *list, int value);
+Record *linked_list_add(LinkedList *list, int value);
 
 // OP 3
-int linked_list_add_at(LinkedList *list, int value, int index);
+Record *linked_list_add_at(LinkedList *list, int value, int index);
 
 // OP 6
 void linked_list_show_reverse(LinkedList *list);
@@ -57,6 +57,6 @@ int linked_list_prime_amount(LinkedList *list);
 void linked_list_bubble_sort(LinkedList *list);
 
 // OP 4
-void linked_list_insert_sorted(LinkedList *list, int value);
+Record *linked_list_insert_sorted(LinkedList *list, int value);
 
 #endif

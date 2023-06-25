@@ -3,7 +3,7 @@
 
 typedef struct Stack {
     void *data;
-    int *top;
+    void *top;
     int size;
 } Stack;
 
@@ -18,8 +18,8 @@ int push(Stack *stack, int value);
 // se a lista está vazia antes de tentar remover.
 int pop(Stack *stack);
 
-// Retorna o valor do top da pilha
-// Comportamento de retorno zero semelhante a função pop.
+// // Retorna o valor do top da pilha
+// // Comportamento de retorno zero semelhante a função pop.
 int top(Stack *stack);
 
 int is_empty(Stack *stack);
