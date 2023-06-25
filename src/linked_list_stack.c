@@ -27,6 +27,10 @@ int push(Stack *stack, int value) {
 void print_stack(Stack *stack) {
     LinkedList *stack_list = (LinkedList*) stack->data;
 
+    if (*stack_list == NULL) {
+        printf("[]\n");
+    }
+
     LinkedList temp = *stack_list;
     while (temp != NULL) {
         printf("[%d]\n", temp->value);
