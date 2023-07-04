@@ -28,7 +28,7 @@ void enqueue(Queue *queue, int value) {
 }
 
 int dequeue(Queue *queue) {
-    if (queue->size == 0) {
+    if (is_empty(queue)) {
         return 0;
     }
 
@@ -47,7 +47,7 @@ int dequeue(Queue *queue) {
 }
 
 int peek(Queue *queue) {
-    if (queue->size == 0) {
+    if (is_empty(queue)) {
         return 0;
     }
 
@@ -61,6 +61,10 @@ int is_empty(Queue *queue) {
 }
 
 void print_queue(Queue *queue) {
+    if (is_empty(queue)) {
+        printf("[]\n");
+        return;
+    }
     QueueList queue_list = (QueueList) queue->data;
     list_show(queue_list);
     queue_list->length = queue->size;
