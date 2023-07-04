@@ -48,6 +48,14 @@ linked_list_stack.o: ./src/linked_list_stack.c
 	gcc -c ./src/linked_list_stack.c
 # linked_stack end
 
+# linked_queue start - para testes, remove comentário do main.
+linked_list_queue_app: linked_list_queue.o linked_list.o utils.o
+	gcc -o linked_list_queue_app.out linked_list_queue.o linked_list.o utils.o
+
+linked_list_queue.o: ./src/linked_list_queue.c
+	gcc -c ./src/linked_list_queue.c
+# linked_queue end
+
 # others start
 utils.o: ./src/utils.c
 	gcc -c ./src/utils.c
