@@ -70,7 +70,8 @@ void print_queue(Queue *queue) {
     queue_list->length = queue->size;
 }
 
-void main() {
+// void main() {
+void test_main() {
     Queue queue = create_queue();
     QueueList queue_list = (QueueList) queue.data;
     enqueue(&queue, 10);

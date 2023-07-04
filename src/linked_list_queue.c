@@ -56,7 +56,8 @@ void print_queue(Queue *queue) {
     linked_list_show((QueueList) queue->data);
 }
 
-void main() {
+// void main() {
+void test_main() {
     Queue queue = create_queue();
     QueueList queue_list = (QueueList) queue.data;
     enqueue(&queue, 10);
