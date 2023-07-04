@@ -32,6 +32,14 @@ sequential_stack.o: ./src/sequential_stack.c
 	gcc -c ./src/sequential_stack.c
 # sequential_stack end
 
+# sequential_queue start - para testes, remove comentário do main.
+sequential_queue_app: sequential_queue.o sequential_list.o utils.o
+	gcc -o sequential_queue_app.out sequential_queue.o sequential_list.o utils.o
+
+sequential_queue.o: ./src/sequential_queue.c
+	gcc -c ./src/sequential_queue.c
+# sequential_queue end
+
 # linked_stack start - para testes, remove comentário do main.
 linked_list_stack_app: linked_list_stack.o linked_list.o utils.o
 	gcc -o linked_list_stack_app.out linked_list_stack.o linked_list.o utils.o

@@ -80,7 +80,8 @@ void list_show(List *list) {
         printf("[]");
     }
 
-    for (int i = 0; i < list->length; i++) {
+    int limit = list->length;
+    for (int i = 0; i < limit; i++) {
         printf("[%d]", list->items[i]);
     }
 
