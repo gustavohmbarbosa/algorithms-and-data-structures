@@ -6,7 +6,7 @@
 typedef List *QueueList;
 
 Queue create_queue() {
-    QueueList queue_list = (QueueList) malloc(sizeof(QueueList));
+    QueueList queue_list = (QueueList) malloc(sizeof(List));
     queue_list->length = 0;
 
     Queue queue = {
@@ -19,11 +19,9 @@ Queue create_queue() {
 
 void enqueue(Queue *queue, int value) {
     QueueList queue_list = (QueueList) queue->data;
-    queue_list->length = queue->size;
     int success = list_insert(queue_list, value);
     if (success) {
         queue->size++;
-        queue_list->length = queue->size;
     }
 }
 
@@ -33,13 +31,11 @@ int dequeue(Queue *queue) {
     }
 
     QueueList queue_list = (QueueList) queue->data;
-    queue_list->length = queue->size;
 
     int first_item = queue_list->items[0];
     int success = list_remove_first(queue_list);
     if (success) {
         queue->size--;
-        queue_list->length = queue->size;
         return first_item;
     }
 
@@ -52,7 +48,6 @@ int peek(Queue *queue) {
     }
 
     QueueList queue_list = (QueueList) queue->data;
-    queue_list->length = queue->size;
     return queue_list->items[0];
 }
 
@@ -61,24 +56,16 @@ int is_empty(Queue *queue) {
 }
 
 void print_queue(Queue *queue) {
-    if (is_empty(queue)) {
-        printf("[]\n");
-        return;
-    }
-    QueueList queue_list = (QueueList) queue->data;
-    list_show(queue_list);
-    queue_list->length = queue->size;
+    list_show((QueueList) queue->data);
 }
 
 // void main() {
 void test_main() {
     Queue queue = create_queue();
-    QueueList queue_list = (QueueList) queue.data;
     enqueue(&queue, 10);
     enqueue(&queue, 20);
     enqueue(&queue, 30);
     print_queue(&queue); // [10, 20, 30]
-
     printf("dequeue: %d | size: %d\n", dequeue(&queue), queue.size); // 10
     printf("dequeue: %d | size: %d\n", dequeue(&queue), queue.size); // 20
     printf("dequeue: %d | size: %d\n", dequeue(&queue), queue.size); // 30

@@ -6,7 +6,7 @@
 typedef List *StackList;
 
 Stack create_stack() {
-    StackList stack_list = (StackList) malloc(sizeof(StackList));
+    StackList stack_list = (StackList) malloc(sizeof(List));
     stack_list->length = 0;
 
     Stack stack = {
