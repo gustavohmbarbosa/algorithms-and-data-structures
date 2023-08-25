@@ -167,17 +167,23 @@ int list_prime_amount(List *list) {
     return result;
 }
 
+void swap(int *n1, int *n2) {
+    int temp = *n1;
+    *n1 = *n2;
+    *n2 = temp;
+}
+
 void list_bubble_sort(List *list) {
-    int swapped;
-    do {
+    int i, swapped = list->length > 1;
+    while (swapped) {
         swapped = 0;
-        for (int i = 0; i < list->length - 1; i++) {
-            if (list->items[i] > list->items[i + 1]) {
-                int temp = list->items[i];
-                list->items[i] = list->items[i + 1];
-                list->items[i + 1] = temp; 
+        for (i = 1; i < list->length; i++) {
+            int *n1 = &list->items[i - 1];
+            int *n2 = &list->items[i];
+            if (*n2 < *n1) {
+                swap(n2, n1);
                 swapped = 1;
             }
         }
-    } while (swapped);
+    }
 }
