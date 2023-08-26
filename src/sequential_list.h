@@ -59,4 +59,6 @@ int list_prime_amount(List *list);
 
 void list_bubble_sort(List *list);
 
+void list_selection_sort(List *list);
+
 #endif

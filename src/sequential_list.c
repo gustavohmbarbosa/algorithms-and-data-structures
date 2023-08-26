@@ -187,3 +187,18 @@ void list_bubble_sort(List *list) {
         }
     }
 }
+
+void list_selection_sort(List *list) {
+    int limit = 0, minorIndex = 0, i;
+    int end = list->length - 1;
+    while (limit < end) {
+        minorIndex = limit;
+        for (i = minorIndex + 1; i <= end; i++) {
+            if (list->items[i] < list->items[minorIndex]) {
+                minorIndex = i;
+            }
+        }
+        swap(&list->items[limit], &list->items[minorIndex]);
+        limit++;
+    }
+}
