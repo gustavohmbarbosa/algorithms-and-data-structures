@@ -5,7 +5,7 @@
 
 #define DEBUG_MODE 1
 #define TEST_ERROR -42
-#define QTD_OPTIONS 17
+#define QTD_OPTIONS 18
 #define TEXT_DN "Digite o valor: \n"
 #define TEXT_DP "Digite a posição: \n"
 #define TEXT_LS "LISTA SEQUENCIAL"
@@ -417,6 +417,11 @@ void view_list_selection_sort(List *list) {
     header_plus(list, TEXT_LS, 0);
 }
 
+void view_list_insertion_sort(List *list) {
+    list_insertion_sort(list);
+    header_plus(list, TEXT_LS, 0);
+}
+
 void exit_list(List *list) {
     system("clear");
     printf("Lista final: \n");
@@ -447,6 +452,7 @@ void main() {
         { code: 15, description: "15 - Contar a quantidade de números primos da lista", action: view_list_prime_amount },
         { code: 16, description: "16 - Ordenar a lista (bubble)", action: view_list_bubble_sort },
         { code: 17, description: "17 - Ordenar a lista (selection)", action: view_list_selection_sort },
+        { code: 18, description: "18 - Ordenar a lista (insertion)", action: view_list_insertion_sort },
         { code: 42, description: "42 - Rodar testes e sair", action: run_tests },
         { code: 99, description: "99 - Sair", action: exit_list },
     };

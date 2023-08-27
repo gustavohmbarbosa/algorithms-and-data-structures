@@ -202,3 +202,20 @@ void list_selection_sort(List *list) {
         limit++;
     }
 }
+
+void list_insertion_sort(List *list) {
+    int i, j;
+    int current;
+    int end = list->length - 1;
+    for (i = 1; i <= end; i++) {
+        current = list->items[i];
+
+        j = i - 1;
+        while (j >= 0 && current < list->items[j]) {
+            list->items[j + 1] = list->items[j];
+            j--;
+        }
+
+        list->items[j + 1] = current;
+    }
+}

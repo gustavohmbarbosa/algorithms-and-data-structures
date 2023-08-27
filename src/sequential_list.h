@@ -61,4 +61,6 @@ void list_bubble_sort(List *list);
 
 void list_selection_sort(List *list);
 
+void list_insertion_sort(List *list);
+
 #endif
