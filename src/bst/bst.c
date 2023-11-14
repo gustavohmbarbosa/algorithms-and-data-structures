@@ -57,3 +57,16 @@ void print_reverse_order(Tree root) {
     printf("[%d]", root->value);
     print_reverse_order(root->left);
 }
+
+int even_amount(Tree root) {
+    if (root == NULL) {
+        return 0;
+    }
+
+    int result = even_amount(root->left) + even_amount(root->right);
+    if (root->value % 2 == 0) {
+        result++;
+    }
+
+    return result;
+}

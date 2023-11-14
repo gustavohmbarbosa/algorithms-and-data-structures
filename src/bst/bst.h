@@ -19,4 +19,6 @@ void print_post_order(Tree root);
 
 void print_reverse_order(Tree root);
 
+int even_amount(Tree root);
+
 #endif
