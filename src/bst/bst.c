@@ -18,44 +18,66 @@ void insert(Tree *root, int value) {
     return insert(&(*root)->left, value);
 }
 
-void print_pre_order(Tree root) {
+
+void _print_pre_order(Tree root) {
     if (root == NULL) {
         return;
     }
 
     printf("[%d]", root->value);
-    print_pre_order(root->left);
-    print_pre_order(root->right);
+    _print_pre_order(root->left);
+    _print_pre_order(root->right);
+}
+
+void print_pre_order(Tree root) {
+    _print_pre_order(root);
+    printf("\n");
+}
+
+
+void _print_in_order(Tree root) {
+    if (root == NULL) {
+        return;
+    }
+
+    _print_in_order(root->left);
+    printf("[%d]", root->value);
+    _print_in_order(root->right);
 }
 
 void print_in_order(Tree root) {
+    _print_in_order(root);
+    printf("\n");
+}
+
+void _print_post_order(Tree root) {
     if (root == NULL) {
         return;
     }
 
-    print_in_order(root->left);
+    _print_post_order(root->left);
+    _print_post_order(root->right);
     printf("[%d]", root->value);
-    print_in_order(root->right);
 }
 
 void print_post_order(Tree root) {
+    _print_post_order(root);
+    printf("\n");
+}
+
+void _print_reverse_order(Tree root) {
     if (root == NULL) {
         return;
     }
 
-    print_post_order(root->left);
-    print_post_order(root->right);
+    _print_reverse_order(root->right);
     printf("[%d]", root->value);
+    _print_reverse_order(root->left);
 }
 
 void print_reverse_order(Tree root) {
-    if (root == NULL) {
-        return;
-    }
-
-    print_reverse_order(root->right);
-    printf("[%d]", root->value);
-    print_reverse_order(root->left);
+    _print_reverse_order(root);
+    printf("\n");
 }
 
 int even_amount(Tree root) {

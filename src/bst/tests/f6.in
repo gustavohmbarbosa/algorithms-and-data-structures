@@ -1,15 +1,12 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "bst.h"
-
-int main(void *args) {
-    Tree t1 = NULL;
-    insert(&t1, 3);
-    insert(&t1, 1);
-    insert(&t1, 5);
-    insert(&t1, 8);
-    printf("%d\n", even_amount(t1));
-    
+1
+3
+1
+1
+1
+5
+1
+8
+6
     Tree t2 = NULL;
     insert(&t2, 23);
     insert(&t2, 3);
@@ -27,5 +24,4 @@ int main(void *args) {
     insert(&t3, 5);
     insert(&t3, 50);
     printf("%d\n", even_amount(t3));
-    return 0;
-}
+99

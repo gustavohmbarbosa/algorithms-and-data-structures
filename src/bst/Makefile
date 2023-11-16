@@ -1,16 +1,17 @@
-all: f1 f2 f3 f4 f5
+all:
+	make test f=1 && make test f=2 && make test f=3 && make test f=4 && make test f=5
 
-f%: f%.o bst.o
-	gcc -o $@.out $< bst.o
+main: main.o bst.o
+	gcc -o main.bin main.o bst.o
 
-test: f$(n)
-	./$<.out > $<.test.out && diff $<.test.out ./tests/$<.test
+test: main
+	./main.bin < ./tests/f$(f).in -lh > f$(f).test.out && diff f$(f).test.out ./tests/f$(f).out
 
-f%.o: f%.c
-	gcc -c $<
+main.o: main.c
+	gcc -c main.c
 
 bst.o: bst.c
 	gcc -c $<
 
 clean:
-	rm -f *.o *.out
+	rm -f *.o *.out *.bin
