@@ -4,8 +4,11 @@ all:
 main: main.o bst.o
 	gcc -o main.bin main.o bst.o
 
-test: main
-	./main.bin < ./tests/f$(f).in -lh > f$(f).test.out && diff f$(f).test.out ./tests/f$(f).out
+test: file
+	diff f$(f).test.out ./tests/f$(f).out
+
+file: main
+	./main.bin < ./tests/f$(f).in -lh > f$(f).test.out 
 
 main.o: main.c
 	gcc -c main.c
