@@ -28,6 +28,10 @@ int main (void *args) {
                 even_amount(tree);
                 printf("\n");
                 break;
+            case 13:
+                scanf("%d", &value);
+                printf("%d\n", exists(tree, value));
+                break;
             case 99:
                 exit(0);
             default:

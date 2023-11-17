@@ -92,3 +92,23 @@ int even_amount(Tree root) {
 
     return result;
 }
+
+int exists(Tree root, int value) {
+    if (root == NULL) {
+        return 0;
+    }
+
+    if (root->value == value) {
+        return 1;
+    }
+
+    if (value > root->value) {
+        return exists(root->right, value);
+    }
+
+    if (value < root->value) {
+        return exists(root->left, value);
+    }
+
+    return 0;
+}
