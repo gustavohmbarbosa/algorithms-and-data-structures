@@ -125,6 +125,31 @@ int predecessor(Tree root, int value) {
     return (has_value && result != value) ? result : -1;
 }
 
+
+int find_parent(Tree root, int value, int parent) {
+    if (root == NULL) {
+        return -1;
+    }
+
+    if (root->value > value) {
+        return find_parent(root->left, value, root->value);
+    }
+
+    if (root->value < value) {
+        return find_parent(root->right, value, root->value);
+    }
+
+    return parent;
+}
+
+int parent(Tree root, int value) {
+    if (root == NULL || root->value == value) {
+        return -1;
+    }
+ 
+    return find_parent(root, value, value);
+}
+
 int exists(Tree root, int value) {
     if (root == NULL) {
         return 0;

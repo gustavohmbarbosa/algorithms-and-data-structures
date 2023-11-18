@@ -30,6 +30,9 @@ int even_amount(Tree root);
 /* 7 */
 int predecessor(Tree root, int value);
 
+/* 8 */
+int parent(Tree root, int value);
+
 /* 13 */
 int exists(Tree root, int value);
 

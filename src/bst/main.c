@@ -31,6 +31,10 @@ int main (void *args) {
                 scanf("%d", &value);
                 printf("%d\n", predecessor(tree, value));
                 break;
+            case 8:
+                scanf("%d", &value);
+                printf("%d\n", parent(tree, value));
+                break;
             case 13:
                 scanf("%d", &value);
                 printf("%d\n", exists(tree, value));
