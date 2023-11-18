@@ -25,8 +25,11 @@ int main (void *args) {
                 print_reverse_order(tree);
                 break;
             case 6:
-                even_amount(tree);
-                printf("\n");
+                printf("%d\n", even_amount(tree));
+                break;
+            case 7:
+                scanf("%d", &value);
+                printf("%d\n", predecessor(tree, value));
                 break;
             case 13:
                 scanf("%d", &value);

@@ -93,6 +93,38 @@ int even_amount(Tree root) {
     return result;
 }
 
+int predecessor(Tree root, int value) {
+    int result = value;
+    
+    Tree temp = root;
+    int has_value = 0;
+    while (temp != NULL) {
+        if (temp->value < value) {
+            if (temp->value > result || result == value) {
+                result = temp->value;
+            }
+
+            temp = temp->right;
+            continue;
+        }
+
+        if (temp->value > value) {
+            temp = temp->left;
+            continue;
+        }
+
+        if (temp->value == value) {
+            has_value = 1;
+            temp = temp->left;
+            continue;
+        }
+
+        break;
+    }
+
+    return (has_value && result != value) ? result : -1;
+}
+
 int exists(Tree root, int value) {
     if (root == NULL) {
         return 0;

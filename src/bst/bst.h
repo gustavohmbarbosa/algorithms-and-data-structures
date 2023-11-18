@@ -27,6 +27,9 @@ void print_reverse_order(Tree root);
 /* 6 */
 int even_amount(Tree root);
 
+/* 7 */
+int predecessor(Tree root, int value);
+
 /* 13 */
 int exists(Tree root, int value);
 
