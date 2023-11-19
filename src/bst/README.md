@@ -14,3 +14,7 @@ make test f=number_of_test
 # create a output file test, without verify if matches
 make file f=number_of_test
 ```
+
+# TODO
+* Add methods implement to choice in the main program
+* Finish f6 test 
