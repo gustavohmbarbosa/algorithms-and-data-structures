@@ -10,33 +10,33 @@ typedef struct Node {
 typedef Node *Tree;
 
 /* 1 */
-void insert(Tree *root, int value);
+void tree_insert(Tree *root, int value);
 
 /* 2 */
-void print_pre_order(Tree root);
+void tree_print_pre_order(Tree root);
 
 /* 3 */
-void print_in_order(Tree root);
+void tree_print_in_order(Tree root);
 
 /* 4 */
-void print_post_order(Tree root);
+void tree_print_post_order(Tree root);
 
 /* 5 */
-void print_reverse_order(Tree root);
+void tree_print_reverse_order(Tree root);
 
 /* 6 */
-int even_amount(Tree root);
+int tree_even_amount(Tree root);
 
 /* 7 */
-int predecessor(Tree root, int value);
+int tree_predecessor(Tree root, int value);
 
 /* 8 */
-int parent(Tree root, int value);
+int tree_parent(Tree root, int value);
 
 /* 8 ((void *)0) */
 void tree_remove(Tree *root, int value);
 
 /* 13 */
-int exists(Tree root, int value);
+int tree_exists(Tree root, int value);
 
 #endif

@@ -8,20 +8,20 @@
 8
 6
     Tree t2 = NULL;
-    insert(&t2, 23);
-    insert(&t2, 3);
-    insert(&t2, 1);
-    insert(&t2, 7);
-    insert(&t2, 13);
-    insert(&t2, 15);
-    printf("%d\n", even_amount(t2));
+    tree_insert(&t2, 23);
+    tree_insert(&t2, 3);
+    tree_insert(&t2, 1);
+    tree_insert(&t2, 7);
+    tree_insert(&t2, 13);
+    tree_insert(&t2, 15);
+    printf("%d\n", tree_even_amount(t2));
     
     Tree t3 = NULL;
-    insert(&t3, 8);
-    insert(&t3, 3);
-    insert(&t3, 2);
-    insert(&t3, 22);
-    insert(&t3, 5);
-    insert(&t3, 50);
-    printf("%d\n", even_amount(t3));
+    tree_insert(&t3, 8);
+    tree_insert(&t3, 3);
+    tree_insert(&t3, 2);
+    tree_insert(&t3, 22);
+    tree_insert(&t3, 5);
+    tree_insert(&t3, 50);
+    printf("%d\n", tree_even_amount(t3));
 99

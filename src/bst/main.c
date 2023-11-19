@@ -10,30 +10,30 @@ int main (void *args) {
         switch (option) {
             case 1:
                 scanf("%d", &value);
-                insert(&tree, value);
+                tree_insert(&tree, value);
                 break;
             case 2:
-                print_pre_order(tree);
+                tree_print_pre_order(tree);
                 break;
             case 3:
-                print_in_order(tree);
+                tree_print_in_order(tree);
                 break;
             case 4:
-                print_post_order(tree);
+                tree_print_post_order(tree);
                 break;
             case 5:
-                print_reverse_order(tree);
+                tree_print_reverse_order(tree);
                 break;
             case 6:
-                printf("%d\n", even_amount(tree));
+                printf("%d\n", tree_even_amount(tree));
                 break;
             case 7:
                 scanf("%d", &value);
-                printf("%d\n", predecessor(tree, value));
+                printf("%d\n", tree_predecessor(tree, value));
                 break;
             case 8:
                 scanf("%d", &value);
-                printf("%d\n", parent(tree, value));
+                printf("%d\n", tree_parent(tree, value));
                 break;
             case 9:
                 scanf("%d", &value);
@@ -41,7 +41,7 @@ int main (void *args) {
                 break;
             case 13:
                 scanf("%d", &value);
-                printf("%d\n", exists(tree, value));
+                printf("%d\n", tree_exists(tree, value));
                 break;
             case 99:
                 exit(0);

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "bst.h"
 
-void insert(Tree *root, int value) {
+void tree_insert(Tree *root, int value) {
     if (*root == NULL) {
         *root = (Tree) malloc(sizeof(Node)); 
         (*root)->right = NULL;
@@ -12,10 +12,10 @@ void insert(Tree *root, int value) {
     }
 
     if (value > (*root)->value) {
-        return insert(&(*root)->right, value);
+        return tree_insert(&(*root)->right, value);
     }
 
-    return insert(&(*root)->left, value);
+    return tree_insert(&(*root)->left, value);
 }
 
 
@@ -29,7 +29,7 @@ void _print_pre_order(Tree root) {
     _print_pre_order(root->right);
 }
 
-void print_pre_order(Tree root) {
+void tree_print_pre_order(Tree root) {
     _print_pre_order(root);
     printf("\n");
 }
@@ -45,7 +45,7 @@ void _print_in_order(Tree root) {
     _print_in_order(root->right);
 }
 
-void print_in_order(Tree root) {
+void tree_print_in_order(Tree root) {
     _print_in_order(root);
     printf("\n");
 }
@@ -60,7 +60,7 @@ void _print_post_order(Tree root) {
     printf("[%d]", root->value);
 }
 
-void print_post_order(Tree root) {
+void tree_print_post_order(Tree root) {
     _print_post_order(root);
     printf("\n");
 }
@@ -75,17 +75,17 @@ void _print_reverse_order(Tree root) {
     _print_reverse_order(root->left);
 }
 
-void print_reverse_order(Tree root) {
+void tree_print_reverse_order(Tree root) {
     _print_reverse_order(root);
     printf("\n");
 }
 
-int even_amount(Tree root) {
+int tree_even_amount(Tree root) {
     if (root == NULL) {
         return 0;
     }
 
-    int result = even_amount(root->left) + even_amount(root->right);
+    int result = tree_even_amount(root->left) + tree_even_amount(root->right);
     if (root->value % 2 == 0) {
         result++;
     }
@@ -93,7 +93,7 @@ int even_amount(Tree root) {
     return result;
 }
 
-int predecessor(Tree root, int value) { // TODO: try to do with "reverse order"
+int tree_predecessor(Tree root, int value) { // TODO: try to do with "reverse order"
     int result = value;
     
     Tree temp = root;
@@ -126,7 +126,7 @@ int predecessor(Tree root, int value) { // TODO: try to do with "reverse order"
 }
 
 
-int find_parent(Tree root, int value, int parent) {
+int find_parent(Tree root, int value, int tree_parent) {
     if (root == NULL) {
         return -1;
     }
@@ -139,10 +139,10 @@ int find_parent(Tree root, int value, int parent) {
         return find_parent(root->right, value, root->value);
     }
 
-    return parent;
+    return tree_parent;
 }
 
-int parent(Tree root, int value) {
+int tree_parent(Tree root, int value) {
     if (root == NULL || root->value == value) {
         return -1;
     }
@@ -150,7 +150,7 @@ int parent(Tree root, int value) {
     return find_parent(root, value, value);
 }
 
-int exists(Tree root, int value) {
+int tree_exists(Tree root, int value) {
     if (root == NULL) {
         return 0;
     }
@@ -160,11 +160,11 @@ int exists(Tree root, int value) {
     }
 
     if (value > root->value) {
-        return exists(root->right, value);
+        return tree_exists(root->right, value);
     }
 
     if (value < root->value) {
-        return exists(root->left, value);
+        return tree_exists(root->left, value);
     }
 
     return 0;
