@@ -39,6 +39,9 @@ void tree_remove(Tree *root, int value);
 /* 10 */
 int tree_even_sum(Tree root);
 
+/* 11 */
+void tree_prune(Tree *root, int value);
+
 /* 13 */
 int tree_exists(Tree root, int value);
 

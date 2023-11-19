@@ -167,6 +167,21 @@ int tree_exists(Tree root, int value) {
     return 0;
 }
 
+void tree_cut_sheet(Tree *sheet) {
+    free(*sheet);
+    *sheet = NULL;
+}
+
+void tree_purge(Tree *root) {
+    if (*root == NULL) {
+        return;
+    }
+
+    tree_purge(&(*root)->right);
+    tree_purge(&(*root)->left);
+    tree_cut_sheet(root);
+}
+
 void tree_remove(Tree *root, int value) {
     if (*root == NULL) {
         return;
@@ -181,8 +196,7 @@ void tree_remove(Tree *root, int value) {
     }
 
     if ((*root)->left == NULL && (*root)->right == NULL) {
-        free(*root);
-        *root = NULL;
+        tree_cut_sheet(root);
         return;
     }
 
@@ -206,8 +220,7 @@ void tree_remove(Tree *root, int value) {
     }
 
     (*root)->value = (*inorder_successor)->value;
-    free(*inorder_successor);
-    *inorder_successor = NULL;
+    tree_cut_sheet(inorder_successor);
 }
 
 int tree_even_sum(Tree root) {
@@ -217,4 +230,21 @@ int tree_even_sum(Tree root) {
     int value = (root->value % 2) == 0 ? root->value : 0;
 
     return value + tree_even_sum(root->left) + tree_even_sum(root->right);
+}
+
+void tree_prune(Tree *root, int value) {
+    Tree *the_one = root;
+    while (*the_one != NULL && (*the_one)->value != value) {
+        if (value > (*the_one)->value) {
+            the_one = &(*the_one)->right;
+            continue;
+        }
+
+        if (value < (*the_one)->value) {
+            the_one = &(*the_one)->left;
+            continue;
+        }
+    }
+
+    tree_purge(the_one);
 }

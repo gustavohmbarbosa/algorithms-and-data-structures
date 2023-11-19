@@ -42,6 +42,10 @@ int main (void *args) {
             case 10:
                 printf("%d\n", tree_even_sum(tree));
                 break;
+            case 11:
+                scanf("%d", &value);
+                tree_prune(&tree, value);
+                break;
             case 13:
                 scanf("%d", &value);
                 printf("%d\n", tree_exists(tree, value));
