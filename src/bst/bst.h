@@ -48,4 +48,7 @@ void tree_pow_sheets(Tree root);
 /* 13 */
 int tree_exists(Tree root, int value);
 
+/* 14 */
+void tree_print_children_in_order(Tree root, int parent);
+
 #endif

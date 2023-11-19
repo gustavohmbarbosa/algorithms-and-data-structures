@@ -262,3 +262,10 @@ void tree_pow_sheets(Tree root) {
     tree_pow_sheets(root->left);
     tree_pow_sheets(root->right);
 }
+
+void tree_print_children_in_order(Tree root, int parent) {
+    Tree *the_one = tree_find(&root, parent);
+    _print_in_order((*the_one)->left);
+    _print_in_order((*the_one)->right);
+    printf("\n");
+}

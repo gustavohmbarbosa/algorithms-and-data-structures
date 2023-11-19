@@ -53,6 +53,10 @@ int main (void *args) {
                 scanf("%d", &value);
                 printf("%d\n", tree_exists(tree, value));
                 break;
+            case 14:
+                scanf("%d", &value);
+                tree_print_children_in_order(tree, value);
+                break;
             case 99:
                 exit(0);
             default:
