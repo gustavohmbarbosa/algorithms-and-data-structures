@@ -232,21 +232,25 @@ int tree_even_sum(Tree root) {
     return value + tree_even_sum(root->left) + tree_even_sum(root->right);
 }
 
-void tree_prune(Tree *root, int value) {
-    Tree *the_one = root;
-    while (*the_one != NULL && (*the_one)->value != value) {
-        if (value > (*the_one)->value) {
-            the_one = &(*the_one)->right;
+Tree* tree_find(Tree *root, int value) {
+    Tree *result = root;
+    while (*result != NULL && (*result)->value != value) {
+        if (value > (*result)->value) {
+            result = &(*result)->right;
             continue;
         }
 
-        if (value < (*the_one)->value) {
-            the_one = &(*the_one)->left;
+        if (value < (*result)->value) {
+            result = &(*result)->left;
             continue;
         }
     }
 
-    tree_purge(the_one);
+    return result;
+}
+
+void tree_prune(Tree *root, int value) {
+    tree_purge(tree_find(root, value));
 }
 
 void tree_pow_sheets(Tree root) {
