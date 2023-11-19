@@ -248,3 +248,13 @@ void tree_prune(Tree *root, int value) {
 
     tree_purge(the_one);
 }
+
+void tree_pow_sheets(Tree root) {
+    if (root == NULL) {
+        return;
+    }
+
+    root->value = root->value * 2;
+    tree_pow_sheets(root->left);
+    tree_pow_sheets(root->right);
+}

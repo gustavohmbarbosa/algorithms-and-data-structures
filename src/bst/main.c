@@ -46,6 +46,9 @@ int main (void *args) {
                 scanf("%d", &value);
                 tree_prune(&tree, value);
                 break;
+            case 12:
+                tree_pow_sheets(tree);
+                break;
             case 13:
                 scanf("%d", &value);
                 printf("%d\n", tree_exists(tree, value));

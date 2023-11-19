@@ -42,6 +42,9 @@ int tree_even_sum(Tree root);
 /* 11 */
 void tree_prune(Tree *root, int value);
 
+/* 12 */
+void tree_pow_sheets(Tree root);
+
 /* 13 */
 int tree_exists(Tree root, int value);
 
