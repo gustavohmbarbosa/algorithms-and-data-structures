@@ -269,3 +269,24 @@ void tree_print_children_in_order(Tree root, int parent) {
     _print_in_order((*the_one)->right);
     printf("\n");
 }
+
+int tree_height(Tree root) {
+    if (root == NULL) {
+        return 0;
+    }
+
+    int result = 1;
+    int right_amount = 0;
+    if (root->right != NULL) {
+        right_amount = tree_height(root->right);
+    }
+
+    int left_amount = 0;
+    if (root->left != NULL) {
+        left_amount = tree_height(root->left);
+    }
+
+    result += right_amount > left_amount ? right_amount : left_amount;
+
+    return result;
+}

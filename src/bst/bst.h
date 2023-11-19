@@ -51,4 +51,7 @@ int tree_exists(Tree root, int value);
 /* 14 */
 void tree_print_children_in_order(Tree root, int parent);
 
+/* 15 */
+int tree_height(Tree root);
+
 #endif

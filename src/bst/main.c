@@ -57,6 +57,9 @@ int main (void *args) {
                 scanf("%d", &value);
                 tree_print_children_in_order(tree, value);
                 break;
+            case 15:
+                printf("%d\n", tree_height(tree));
+                break;
             case 99:
                 exit(0);
             default:
