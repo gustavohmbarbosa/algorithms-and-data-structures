@@ -93,7 +93,7 @@ int even_amount(Tree root) {
     return result;
 }
 
-int predecessor(Tree root, int value) {
+int predecessor(Tree root, int value) { // TODO: try to do with "reverse order"
     int result = value;
     
     Tree temp = root;
@@ -168,4 +168,47 @@ int exists(Tree root, int value) {
     }
 
     return 0;
+}
+
+void tree_remove(Tree *root, int value) {
+    if (*root == NULL) {
+        return;
+    }
+
+    if (value > (*root)->value) {
+        return tree_remove(&(*root)->right, value);
+    }
+
+    if (value < (*root)->value) {
+        return tree_remove(&(*root)->left, value);
+    }
+
+    if ((*root)->left == NULL && (*root)->right == NULL) {
+        free(*root);
+        *root = NULL;
+        return;
+    }
+
+    if ((*root)->left == NULL) {
+        Tree temp = (*root)->right;
+        *root = temp;
+        free((*root)->right);
+        return;
+    }
+
+    if ((*root)->right == NULL) {
+        Tree temp = (*root)->left;
+        *root = temp;
+        free((*root)->left);
+        return;
+    }
+
+    Tree *inorder_successor = &(*root)->right;
+    while ((*inorder_successor)->left != NULL) {
+        inorder_successor = &(*inorder_successor)->left;
+    }
+
+    (*root)->value = (*inorder_successor)->value;
+    free(*inorder_successor);
+    *inorder_successor = NULL;
 }

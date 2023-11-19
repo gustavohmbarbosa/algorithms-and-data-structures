@@ -35,6 +35,10 @@ int main (void *args) {
                 scanf("%d", &value);
                 printf("%d\n", parent(tree, value));
                 break;
+            case 9:
+                scanf("%d", &value);
+                tree_remove(&tree, value);
+                break;
             case 13:
                 scanf("%d", &value);
                 printf("%d\n", exists(tree, value));
