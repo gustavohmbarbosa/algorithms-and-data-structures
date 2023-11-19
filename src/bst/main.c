@@ -39,6 +39,9 @@ int main (void *args) {
                 scanf("%d", &value);
                 tree_remove(&tree, value);
                 break;
+            case 10:
+                printf("%d\n", tree_even_sum(tree));
+                break;
             case 13:
                 scanf("%d", &value);
                 printf("%d\n", tree_exists(tree, value));

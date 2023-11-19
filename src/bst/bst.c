@@ -18,7 +18,6 @@ void tree_insert(Tree *root, int value) {
     return tree_insert(&(*root)->left, value);
 }
 
-
 void _print_pre_order(Tree root) {
     if (root == NULL) {
         return;
@@ -33,7 +32,6 @@ void tree_print_pre_order(Tree root) {
     _print_pre_order(root);
     printf("\n");
 }
-
 
 void _print_in_order(Tree root) {
     if (root == NULL) {
@@ -125,7 +123,6 @@ int tree_predecessor(Tree root, int value) { // TODO: try to do with "reverse or
     return (has_value && result != value) ? result : -1;
 }
 
-
 int find_parent(Tree root, int value, int tree_parent) {
     if (root == NULL) {
         return -1;
@@ -211,4 +208,13 @@ void tree_remove(Tree *root, int value) {
     (*root)->value = (*inorder_successor)->value;
     free(*inorder_successor);
     *inorder_successor = NULL;
+}
+
+int tree_even_sum(Tree root) {
+    if (root == NULL) {
+        return 0;
+    }
+    int value = (root->value % 2) == 0 ? root->value : 0;
+
+    return value + tree_even_sum(root->left) + tree_even_sum(root->right);
 }

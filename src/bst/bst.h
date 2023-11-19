@@ -33,8 +33,11 @@ int tree_predecessor(Tree root, int value);
 /* 8 */
 int tree_parent(Tree root, int value);
 
-/* 8 ((void *)0) */
+/* 9 ((void *)0) */
 void tree_remove(Tree *root, int value);
+
+/* 10 */
+int tree_even_sum(Tree root);
 
 /* 13 */
 int tree_exists(Tree root, int value);
